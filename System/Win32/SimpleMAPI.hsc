@@ -17,6 +17,8 @@
 module System.Win32.SimpleMAPI
 where
 
+##ifndef ghcjs_HOST_OS
+
 -- I am not sure why exactly, but with mingw64 mapi.h does not define
 -- some of the values we use, e.g. MAPI_LOGOFF_SHARED.
 -- mapix.h does define MAPI_LOGOFF_SHARED, but the various flags
@@ -413,3 +415,6 @@ mapiSendMail f ses hwnd msg flag = withMessage f ses msg $ \msg ->
 
 handleIOException :: (IOException -> IO a) -> IO a -> IO a
 handleIOException = handle
+
+##endif
+

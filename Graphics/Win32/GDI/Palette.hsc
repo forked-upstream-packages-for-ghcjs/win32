@@ -17,6 +17,8 @@
 
 module Graphics.Win32.GDI.Palette where
 
+##ifndef ghcjs_HOST_OS
+
 import System.Win32.Types
 import Graphics.Win32.GDI.Types
 
@@ -48,3 +50,5 @@ foreign import WINDOWS_CCONV unsafe "windows.h DeleteObject"
 ----------------------------------------------------------------
 -- End
 ----------------------------------------------------------------
+
+##endif

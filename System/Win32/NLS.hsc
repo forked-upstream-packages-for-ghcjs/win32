@@ -16,6 +16,9 @@
 -----------------------------------------------------------------------------
 
 module System.Win32.NLS  (
+##ifdef ghcjs_HOST_OS
+    ) where
+##else
 	module System.Win32.NLS,
 
 	-- defined in System.Win32.Types
@@ -381,3 +384,4 @@ foreign import WINDOWS_CCONV unsafe "MultiByteToWideChar"
         -> LPWSTR  -- lpWideCharStr
         -> CInt    -- cchWideChar
         -> IO CInt
+##endif

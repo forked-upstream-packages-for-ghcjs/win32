@@ -17,6 +17,8 @@
 
 module Graphics.Win32.Key where
 
+##ifndef ghcjs_HOST_OS
+
 import Control.Monad (liftM)
 import Graphics.Win32.GDI.Types (HWND)
 import System.Win32.Types (DWORD, UINT, WORD, ptrToMaybe)
@@ -122,3 +124,5 @@ foreign import WINDOWS_CCONV unsafe "windows.h GetKBCodePage"
 
 foreign import WINDOWS_CCONV unsafe "windows.h IsWindowEnabled"
   isWindowEnabled :: HWND -> IO Bool
+
+##endif

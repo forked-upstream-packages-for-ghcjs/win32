@@ -19,6 +19,8 @@ module Graphics.Win32.GDI.HDC
 	( module Graphics.Win32.GDI.HDC
 	) where
 
+#ifndef ghcjs_HOST_OS
+
 import System.Win32.Types
 import Graphics.Win32.GDI.Types
 
@@ -318,3 +320,5 @@ foreign import WINDOWS_CCONV unsafe "windows.h DeleteDC"
 ----------------------------------------------------------------
 -- End
 ----------------------------------------------------------------
+
+#endif

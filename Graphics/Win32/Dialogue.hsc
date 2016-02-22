@@ -17,6 +17,8 @@
 
 module Graphics.Win32.Dialogue where
 
+##ifndef ghcjs_HOST_OS
+
 import Graphics.Win32.GDI.Types
 import Graphics.Win32.Control
 import Graphics.Win32.Message
@@ -332,3 +334,5 @@ foreign import WINDOWS_CCONV "windows.h SetDlgItemTextW"
 ----------------------------------------------------------------
 -- End
 ----------------------------------------------------------------
+
+##endif

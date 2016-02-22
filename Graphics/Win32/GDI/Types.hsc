@@ -54,6 +54,8 @@ module Graphics.Win32.GDI.Types
 -}
 	where
 
+##ifndef ghcjs_HOST_OS
+
 import System.Win32.Types
 
 import Control.Monad( zipWithM_ )
@@ -395,3 +397,5 @@ foreign import ccall unsafe "HsGDI.h"
 ----------------------------------------------------------------
 -- End
 ----------------------------------------------------------------
+
+##endif

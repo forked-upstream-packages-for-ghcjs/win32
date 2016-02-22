@@ -17,6 +17,8 @@
 
 module Graphics.Win32.Icon where
 
+#ifndef ghcjs_HOST_OS
+
 import Graphics.Win32.GDI.Types
 import System.Win32.Types
 
@@ -47,3 +49,5 @@ foreign import WINDOWS_CCONV unsafe "windows.h DestroyIcon"
 ----------------------------------------------------------------
 -- End
 ----------------------------------------------------------------
+
+#endif

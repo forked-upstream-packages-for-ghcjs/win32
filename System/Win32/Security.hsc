@@ -22,7 +22,10 @@
 --
 -----------------------------------------------------------------------------
 
-module System.Win32.Security ( 
+module System.Win32.Security (
+##ifdef ghcjs_HOST_OS
+        ) where
+##else
         -- * Types
         SID, PSID,
         ACL, PACL,
@@ -235,3 +238,5 @@ foreign import WINDOWS_CCONV unsafe "windows.h GetFileSecurityW"
 --      -> BOOL -- OpenAsSelf
 --      -> PHANDLE -- TokenHandle
 --      -> IO BOOL
+
+##endif

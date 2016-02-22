@@ -16,6 +16,8 @@
 -----------------------------------------------------------------------------
 module System.Win32.DebugApi where
 
+##ifndef ghcjs_HOST_OS
+
 import Control.Exception( bracket_ )
 import Data.Word        ( Word8, Word32 )
 import Foreign          ( Ptr, nullPtr, ForeignPtr, mallocForeignPtrBytes
@@ -407,3 +409,5 @@ foreign import WINDOWS_CCONV "windows.h IsDebuggerPresent"
 
 foreign import WINDOWS_CCONV "windows.h  DebugBreak"
     debugBreak :: IO ()
+
+##endif

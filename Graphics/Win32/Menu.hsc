@@ -63,6 +63,8 @@ module Graphics.Win32.Menu
 
        ) -} where
 
+##ifndef ghcjs_HOST_OS
+
 import Graphics.Win32.GDI.Types
 import System.Win32.Types
 
@@ -474,3 +476,5 @@ foreign import WINDOWS_CCONV unsafe "windows.h RemoveMenu"
 ----------------------------------------------------------------
 -- End
 ----------------------------------------------------------------
+
+##endif

@@ -17,6 +17,8 @@
 
 module Graphics.Win32.Message where
 
+##ifndef ghcjs_HOST_OS
+
 import System.Win32.Types
 
 ##include "windows_cconv.h"
@@ -176,3 +178,5 @@ foreign import WINDOWS_CCONV unsafe "windows.h RegisterWindowMessageW"
 ----------------------------------------------------------------
 -- Phew!
 ----------------------------------------------------------------
+
+##endif

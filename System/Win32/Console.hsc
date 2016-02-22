@@ -16,6 +16,9 @@
 -----------------------------------------------------------------------------
 
 module System.Win32.Console (
+##ifdef ghcjs_HOST_OS
+    ) where
+##else
 	-- * Console code pages
 	getConsoleCP,
 	setConsoleCP,
@@ -58,3 +61,5 @@ foreign import WINDOWS_CCONV safe "windows.h GenerateConsoleCtrlEvent"
     c_GenerateConsoleCtrlEvent :: CtrlEvent -> DWORD -> IO BOOL
 
 -- ToDo: lots more
+
+##endif

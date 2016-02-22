@@ -16,6 +16,9 @@
 -----------------------------------------------------------------------------
 
 module Graphics.Win32.GDI.Bitmap(
+##ifdef ghcjs_HOST_OS
+    ) where
+##else
 	RasterOp3,
 	RasterOp4,
 	sRCCOPY,
@@ -419,3 +422,5 @@ foreign import WINDOWS_CCONV unsafe "windows.h CreateDIBitmap"
 ----------------------------------------------------------------
 -- End
 ----------------------------------------------------------------
+
+##endif

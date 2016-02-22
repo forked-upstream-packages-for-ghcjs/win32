@@ -16,6 +16,9 @@
 -----------------------------------------------------------------------------
 
 module System.Win32.Process where
+
+##ifndef ghcjs_HOST_OS
+
 import Control.Exception    ( bracket )
 import Control.Monad        ( liftM5 )
 import Foreign              ( Ptr, peekByteOff, allocaBytes, pokeByteOff
@@ -128,3 +131,5 @@ th32SnapEnumProcesses h = allocaBytes (#size PROCESSENTRY32W) $ \pe -> do
                 entry <- peekProcessEntry32 pe
                 ok' <- c_Process32Next h pe
                 readAndNext ok' pe (entry:res)
+
+##endif

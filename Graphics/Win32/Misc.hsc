@@ -17,6 +17,8 @@
 
 module Graphics.Win32.Misc where
 
+##ifndef ghcjs_HOST_OS
+
 import Graphics.Win32.GDI.Types
 import System.Win32.Types
 
@@ -296,3 +298,5 @@ foreign import WINDOWS_CCONV unsafe "windows.h timeGetTime"
 ----------------------------------------------------------------
 -- End
 ----------------------------------------------------------------
+
+##endif

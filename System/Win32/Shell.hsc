@@ -16,6 +16,9 @@
 -----------------------------------------------------------------------------
 
 module System.Win32.Shell (
+##ifdef ghcjs_HOST_OS
+    ) where
+##else
   sHGetFolderPath,
   CSIDL,
   cSIDL_PROFILE,
@@ -81,3 +84,5 @@ raiseUnsupported loc =
 foreign import WINDOWS_CCONV unsafe "SHGetFolderPathW"
   c_SHGetFolderPath :: HWND -> CInt -> HANDLE -> DWORD -> LPTSTR
                     -> IO HRESULT
+
+##endif

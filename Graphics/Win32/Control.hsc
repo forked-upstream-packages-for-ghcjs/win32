@@ -17,6 +17,8 @@
 
 module Graphics.Win32.Control where
 
+##ifndef ghcjs_HOST_OS
+
 import Data.Bits ((.|.))
 import Graphics.Win32.GDI.Types (HMENU, HWND)
 import Graphics.Win32.Message (WindowMessage)
@@ -346,3 +348,5 @@ foreign import WINDOWS_CCONV unsafe "windows.h InitCommonControls"
 -- % , PBM_SETBARCOLOR
 -- % , PBM_SETBKCOLOR
 -- % , PBM_SETRANGE32
+
+##endif

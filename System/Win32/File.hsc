@@ -24,6 +24,8 @@ module System.Win32.File
 -}
 where
 
+##ifndef ghcjs_HOST_OS
+
 import System.Win32.Types
 import System.Win32.Time
 
@@ -653,3 +655,5 @@ foreign import WINDOWS_CCONV unsafe "windows.h SetVolumeLabelW"
 ----------------------------------------------------------------
 -- End
 ----------------------------------------------------------------
+
+##endif

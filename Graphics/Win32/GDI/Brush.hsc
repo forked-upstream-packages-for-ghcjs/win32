@@ -17,6 +17,7 @@
 
 module Graphics.Win32.GDI.Brush where
 
+##ifndef ghcjs_HOST_OS
 import System.Win32.Types
 import Graphics.Win32.GDI.Types
 
@@ -75,3 +76,5 @@ foreign import WINDOWS_CCONV unsafe "windows.h GetStockObject"
 ----------------------------------------------------------------
 -- End
 ----------------------------------------------------------------
+
+##endif

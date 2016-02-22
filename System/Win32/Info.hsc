@@ -17,6 +17,8 @@
 
 module System.Win32.Info where
 
+##ifndef ghcjs_HOST_OS
+
 import Control.Exception (catch)
 import Foreign.Marshal.Alloc (alloca)
 import Foreign.Marshal.Array (allocaArray)
@@ -392,3 +394,5 @@ type SMSetting = UINT
 ----------------------------------------------------------------
 -- End
 ----------------------------------------------------------------
+
+##endif

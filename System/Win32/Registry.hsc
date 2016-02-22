@@ -16,6 +16,11 @@
 -----------------------------------------------------------------------------
 
 module System.Win32.Registry
+
+##ifdef ghcjs_HOST_OS
+        () where
+##else
+
 		( module System.Win32.Registry
 		) where
 {- What's really on offer:
@@ -523,3 +528,5 @@ regUnLoadKey key subkey =
   failUnlessSuccess "RegUnLoadKey" $ c_RegUnLoadKey p_key c_subkey
 foreign import WINDOWS_CCONV unsafe "windows.h RegUnLoadKeyW"
   c_RegUnLoadKey :: PKEY -> LPCTSTR -> IO ErrCode
+
+##endif

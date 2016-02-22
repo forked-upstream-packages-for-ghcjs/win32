@@ -17,6 +17,8 @@
 
 module System.Win32.DLL where
 
+##ifndef ghcjs_HOST_OS
+
 import System.Win32.Types
 
 import Foreign
@@ -84,3 +86,5 @@ loadLibraryEx name h flags =
   failIfNull "LoadLibraryEx" $ c_LoadLibraryEx c_name h flags
 foreign import WINDOWS_CCONV unsafe "windows.h LoadLibraryExW"
   c_LoadLibraryEx :: LPCTSTR -> HANDLE -> LoadLibraryFlags -> IO HINSTANCE
+
+##endif

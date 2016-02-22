@@ -16,6 +16,9 @@
 -----------------------------------------------------------------------------
 
 module Graphics.Win32.GDI.Path
+#ifdef ghcjs_HOST_OS
+    ( ) where
+#else
 	( beginPath, closeFigure, endPath, fillPath, flattenPath
 	, pathToRegion, strokeAndFillPath, strokePath, widenPath
 	) where
@@ -89,3 +92,5 @@ foreign import WINDOWS_CCONV unsafe "windows.h WidenPath"
 ----------------------------------------------------------------
 -- End
 ----------------------------------------------------------------
+
+#endif

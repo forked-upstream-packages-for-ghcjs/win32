@@ -17,6 +17,8 @@
 
 module Graphics.Win32.GDI.Clip where
 
+##ifndef ghcjs_HOST_OS
+
 import Control.Monad
 import Graphics.Win32.GDI.Types
 import System.Win32.Types
@@ -155,3 +157,5 @@ setClipboardViewer wnd =
   failIfNull "SetClipboardViewer" $ c_SetClipboardViewer wnd
 foreign import WINDOWS_CCONV unsafe "windows.h SetClipboardViewer"
   c_SetClipboardViewer :: HWND -> IO HWND
+
+##endif

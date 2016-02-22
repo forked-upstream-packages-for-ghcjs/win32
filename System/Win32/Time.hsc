@@ -16,6 +16,8 @@
 -----------------------------------------------------------------------------
 module System.Win32.Time where
 
+##ifndef ghcjs_HOST_OS
+
 import System.Win32.Types   ( DWORD, WORD, LONG, BOOL, failIf, failIf_, HANDLE
                             , peekTStringLen, LCID, LPTSTR, LPCTSTR, DDWORD
                             , LARGE_INTEGER, ddwordToDwords, dwordsToDdword )
@@ -307,3 +309,5 @@ getTimeFormat locale flags st fmt =
             size <- failIf (==0) "getTimeFormat: GetTimeFormat" $
                 c_GetTimeFormat locale flags st fmt (castPtr out) size
             peekTStringLen (out,fromIntegral size)
+
+##endif

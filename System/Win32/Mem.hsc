@@ -17,6 +17,8 @@
 
 module System.Win32.Mem where
 
+##ifndef ghcjs_HOST_OS
+
 import System.Win32.Types
 
 import Foreign
@@ -270,3 +272,5 @@ virtualUnlock addr size =
   failIfFalse_ "VirtualUnlock" $ c_VirtualUnlock addr size
 foreign import WINDOWS_CCONV unsafe "windows.h VirtualUnlock"
   c_VirtualUnlock :: Addr -> DWORD -> IO Bool
+
+##endif

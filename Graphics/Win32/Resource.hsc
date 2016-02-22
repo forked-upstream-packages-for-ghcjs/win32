@@ -17,6 +17,8 @@
 
 module Graphics.Win32.Resource where
 
+##ifndef ghcjs_HOST_OS
+
 import System.Win32.Types
 
 import Foreign
@@ -146,3 +148,5 @@ updateResource h ty name lang p_data data_len =
     c_UpdateResource h ty c_name lang p_data data_len
 foreign import WINDOWS_CCONV unsafe "windows.h UpdateResourceW"
   c_UpdateResource :: HANDLE -> LPCTSTR -> LPCTSTR -> WORD -> Addr -> DWORD -> IO Bool
+
+##endif

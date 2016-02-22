@@ -16,6 +16,8 @@
 -----------------------------------------------------------------------------
 module System.Win32.FileMapping where
 
+##ifndef ghcjs_HOST_OS
+
 import System.Win32.Types   ( HANDLE, DWORD, BOOL, SIZE_T, LPCTSTR, withTString
                             , failIf, failIfNull, DDWORD, ddwordToDwords
                             , iNVALID_HANDLE_VALUE )
@@ -172,3 +174,5 @@ foreign import WINDOWS_CCONV "windows.h UnmapViewOfFile"
 {-# CFILES cbits/HsWin32.c #-}
 foreign import ccall "HsWin32.h &UnmapViewOfFileFinaliser"
     c_UnmapViewOfFileFinaliser :: FunPtr (Ptr a -> IO ())
+
+##endif

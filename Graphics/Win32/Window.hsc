@@ -18,6 +18,8 @@
 
 module Graphics.Win32.Window where
 
+##ifndef ghcjs_HOST_OS
+
 import Control.Monad (liftM)
 import Data.Maybe (fromMaybe)
 import Data.Word (Word32)
@@ -706,3 +708,5 @@ foreign import WINDOWS_CCONV "windows.h SendMessageW"
 ----------------------------------------------------------------
 -- End
 ----------------------------------------------------------------
+
+##endif

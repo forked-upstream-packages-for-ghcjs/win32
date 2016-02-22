@@ -16,6 +16,9 @@
 -----------------------------------------------------------------------------
 
 module System.Win32.Types
+#ifdef ghcjs_HOST_OS
+    ( ) where
+#else
 	( module System.Win32.Types
 	, nullPtr
 	) where
@@ -326,3 +329,5 @@ foreign import ccall unsafe "HsWin32.h prim_SUBLANGID"
 ----------------------------------------------------------------
 -- End
 ----------------------------------------------------------------
+
+#endif
